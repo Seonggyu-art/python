@@ -187,49 +187,82 @@
 #     check_machine()
 # vending_machine()
 
-# 실습 4, 정수를 저장하는 스택을 구현, 입력으로 주어지는 명령을 처리하는 프로그램 작성
-import sys
+# # 실습 4, 정수를 저장하는 스택을 구현, 입력으로 주어지는 명령을 처리하는 프로그램 작성
+# # 먼지 모르는데, 안됨.
 
-# 스택 초기화
-stack = []
+# import sys
 
-# 스택 명령 함수들
-def push(p):
-    stack.append(p)
+# # 스택 초기화
+# stack = []
 
-def pop():
-    if len(stack) == 0:
-        print(-1)
-    else:
-        print(stack.pop())
+# # 스택 명령 함수들
+# def push(p):
+#     stack.append(p)
 
-def size():
-    print(len(stack))
+# def pop():
+#     if len(stack) == 0:
+#         print(-1)
+#     else:
+#         print(stack.pop())
 
-def empty():
-    if len(stack) == 0:
-        print(1)
-    else:
-        print(0)
+# def size():
+#     print(len(stack))
 
-def top():
-    if len(stack) == 0:
-        print(-1)
-    else:
-        print(stack[-1])
+# def empty():
+#     if len(stack) == 0:
+#         print(1)
+#     else:
+#         print(0)
 
-# 입력 처리
-line = int(sys.stdin.readline())  # 명령어 개수 입력받음
+# def top():
+#     if len(stack) == 0:
+#         print(-1)
+#     else:
+#         print(stack[-1])
 
-for _ in range(line):
-    func = sys.stdin.readline().split()  # 명령어 입력받음
-    if func[0] == 'push':
-        push(int(func[1]))
-    elif func[0] == 'pop':
-        pop()
-    elif func[0] == 'size':
-        size()
-    elif func[0] == 'empty':
-        empty()
-    elif func[0] == 'top':
-        top()
+# # 입력 처리
+# line = int(sys.stdin.readline())  # 명령어 개수 입력받음
+
+# for _ in range(line):
+#     func = sys.stdin.readline().split()  # 명령어 입력받음
+#     if func[0] == 'push':
+#         push(int(func[1]))
+#     elif func[0] == 'pop':
+#         pop()
+#     elif func[0] == 'size':
+#         size()
+#     elif func[0] == 'empty':
+#         empty()
+#     elif func[0] == 'top':
+#         top()
+
+
+# def oneup():
+#     #global x
+#     x = x+1
+#     return x
+# x = 0
+# print(oneup())
+# print(oneup())
+# print(oneup())
+
+# count = 0  # 배수의 개수를 저장할 전역 변수
+
+# 실습 5. 1-30까지의 자연수 중 배수와 배수의 개수 계산함수
+count = 0  # 배수의 개수를 저장할 전역 변수
+
+def get_times(n):
+    """
+    n의 배수를 계산하고 출력하는 함수
+    """
+    global count  # 전역 변수 count를 사용
+    for i in range(1, 31):  # 1부터 30까지 반복
+        if i % n == 0:  # n의 배수인지 확인
+            print(i, end=" ")  # 배수를 출력
+            count += 1  # 배수 개수를 증가
+
+# 실행
+n = 3
+get_times(n)
+print(f"\n{n}의 배수의 개수: {count}")
+print("실행 완료")
